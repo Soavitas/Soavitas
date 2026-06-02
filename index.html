@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soavitas | Che cos'è un Concierge Nurse</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:#F5F2ED;color:#171716;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+:root{--cream:#F5F2ED;--ink:#171716;--soft:#E7E9E0;--sage:#73806F;--sage-deep:#596756;--sage-line:rgba(115,128,111,.24);--gold:#9C8052;--muted:rgba(23,23,22,.58);--line:rgba(23,23,22,.09);}
+.s9{padding:10rem 3rem;}.s7{padding:7rem 3rem;}.s5{padding:5rem 3rem;}.bb{border-bottom:1px solid var(--line);} 
+nav{position:sticky;top:0;z-index:100;background:rgba(245,242,237,.94);backdrop-filter:blur(16px);padding:1.6rem 3rem;border-bottom:1px solid rgba(23,23,22,.06);display:flex;justify-content:space-between;align-items:center;}
+.n-logo{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+.n-back{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(23,23,22,.48);text-decoration:none;}
+.nav-actions{display:flex;align-items:center;gap:1.1rem;}
+.n-home{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(23,23,22,.48);text-decoration:none;transition:color 320ms ease,opacity 320ms ease;}
+.n-home:hover{color:var(--sage-deep);}
+.menu-toggle{appearance:none;background:transparent;border:1px solid rgba(23,23,22,.12);border-radius:999px;padding:.78rem 1.05rem;font-family:'Outfit',sans-serif;font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);cursor:pointer;transition:background 420ms cubic-bezier(.16,1,.3,1),border-color 420ms cubic-bezier(.16,1,.3,1),transform 420ms cubic-bezier(.16,1,.3,1);}
+.menu-toggle:hover{background:rgba(231,233,224,.70);border-color:rgba(115,128,111,.36);transform:translateY(-1px);}
+.menu-panel{position:fixed;inset:0;z-index:140;background:rgba(245,242,237,.96);backdrop-filter:blur(22px);display:grid;grid-template-rows:auto 1fr auto;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity 520ms cubic-bezier(.16,1,.3,1),transform 520ms cubic-bezier(.16,1,.3,1);}
+.menu-panel.open{opacity:1;pointer-events:auto;transform:translateY(0);}
+.menu-head{display:flex;justify-content:space-between;align-items:center;padding:1.6rem 3rem;border-bottom:1px solid rgba(23,23,22,.07);}
+.menu-close{appearance:none;background:transparent;border:1px solid rgba(23,23,22,.12);border-radius:999px;padding:.78rem 1.05rem;font-family:'Outfit',sans-serif;font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);cursor:pointer;transition:background 420ms cubic-bezier(.16,1,.3,1),border-color 420ms cubic-bezier(.16,1,.3,1),transform 420ms cubic-bezier(.16,1,.3,1);}
+.menu-close:hover{background:rgba(231,233,224,.70);border-color:rgba(115,128,111,.36);transform:translateY(-1px);}
+.menu-body{padding:4.2rem 3rem 3rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:4rem;align-items:start;}
+.menu-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,8vw,5.6rem);font-weight:400;line-height:.96;letter-spacing:-.04em;color:var(--ink);max-width:600px;}
+.menu-title em{font-style:italic;color:var(--sage-deep);}
+.menu-links{display:grid;gap:.35rem;border-top:1px solid rgba(23,23,22,.09);}
+.menu-links a{display:flex;justify-content:space-between;gap:1rem;padding:1.25rem 0;border-bottom:1px solid rgba(23,23,22,.08);text-decoration:none;color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:1.55rem;line-height:1.1;letter-spacing:-.015em;transition:color 320ms ease,transform 420ms cubic-bezier(.16,1,.3,1);}
+.menu-links a:hover{color:var(--sage-deep);transform:translateX(4px);}
+.menu-links a span{font-family:'Outfit',sans-serif;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(23,23,22,.38);padding-top:.35rem;white-space:nowrap;}
+.menu-foot{padding:0 3rem 2.4rem;display:flex;justify-content:space-between;gap:2rem;align-items:flex-end;color:rgba(23,23,22,.42);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;line-height:1.8;}
+body.menu-open{overflow:hidden;}
+
+.tag{font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(23,23,22,.42);display:block;margin-bottom:2.5rem;font-weight:400;}
+.tag-gold{color:var(--gold);font-size:.7rem;font-weight:500;letter-spacing:.2em;}.tag-light{color:rgba(245,242,237,.62);}
+.h1{font-family:'Bodoni Moda','Cormorant Garamond',serif;font-size:clamp(3.9rem,13vw,8.4rem);font-weight:400;line-height:.88;letter-spacing:-.06em;margin-bottom:3.4rem;}
+.h1 em,.h2 em,.pull em{font-style:italic;color:var(--sage-deep);}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.7rem,8.8vw,5.6rem);font-weight:400;line-height:.96;letter-spacing:-.035em;margin-bottom:3rem;}
+.h2-bodoni{font-family:'Cormorant Garamond',serif;line-height:.96;letter-spacing:-.035em;}
+.h2-light{color:var(--cream);}.h2-light em{color:#BBA06C;}
+.lead{font-size:1.05rem;font-weight:300;line-height:2.35;color:rgba(23,23,22,.70);max-width:560px;margin-bottom:1.2rem;letter-spacing:.01em;}
+.defn{font-size:.70rem;letter-spacing:.18em;color:rgba(23,23,22,.42);margin-bottom:3rem;line-height:2;text-transform:uppercase;}
+.body{font-size:1rem;font-weight:300;line-height:2.35;color:rgba(23,23,22,.70);max-width:620px;letter-spacing:.01em;}.body strong{font-weight:500;color:var(--ink);} .body-light{color:rgba(245,242,237,.76);}
+.btn-hero,.btn-outline,.btn-main,.btn-info,.res-card a,.res-actions button{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;text-align:center;text-decoration:none;border-radius:999px;transition:transform 420ms cubic-bezier(.16,1,.3,1),background 420ms cubic-bezier(.16,1,.3,1),border-color 420ms cubic-bezier(.16,1,.3,1),box-shadow 420ms cubic-bezier(.16,1,.3,1),opacity 320ms ease;color:inherit;will-change:transform;}
+.btn-hero{padding:1.25rem 2.25rem;background:var(--ink);color:var(--cream);font-size:.58rem;letter-spacing:.30em;text-transform:uppercase;box-shadow:0 18px 44px rgba(23,23,22,.10);}
+.btn-hero:hover{transform:translateY(-2px);box-shadow:0 22px 54px rgba(23,23,22,.14);}
+.btn-outline{margin-left:.9rem;padding:1.18rem 1.9rem;border:1px solid rgba(23,23,22,.14);color:var(--ink);font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;background:rgba(245,242,237,.36);}
+.btn-outline:hover{transform:translateY(-2px);border-color:rgba(115,128,111,.34);background:rgba(231,233,224,.62);}
+.hero-note{font-size:.82rem;font-weight:300;color:rgba(23,23,22,.48);line-height:1.9;max-width:430px;margin-top:2rem;}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#E9ECE4;}
+.strip div{padding:2.2rem 3rem;border-right:1px solid var(--line);}.strip div:last-child{border-right:none;}.strip b{display:block;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:.9rem;font-weight:500;}.strip span{font-size:.95rem;font-weight:300;line-height:1.8;color:rgba(23,23,22,.76);}
+.acc{border-top:1px solid rgba(23,23,22,.08);}.acc-end{border-bottom:1px solid rgba(23,23,22,.09);}.acc-light{border-top:1px solid rgba(245,242,237,.08);}.acc-light-end{border-bottom:1px solid rgba(245,242,237,.08);}
+.acc-btn{width:100%;padding:1.75rem 0;background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:opacity 300ms ease,transform 420ms cubic-bezier(.16,1,.3,1);}
+.acc-btn:hover{opacity:.78;transform:translateX(3px);}
+.acc-name{font-size:1.05rem;font-weight:400;color:var(--ink);text-align:left;line-height:1.55;}.acc-name small{display:block;margin-top:.25rem;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,22,.42);font-weight:300;}
+.acc-ic{font-size:.95rem;color:rgba(23,23,22,.42);flex-shrink:0;font-weight:300;transition:transform 420ms cubic-bezier(.16,1,.3,1);}.acc-body{max-height:0;overflow:hidden;opacity:0;padding:0;transition:max-height 650ms cubic-bezier(.16,1,.3,1),opacity 420ms ease,padding 420ms ease;}.acc-body.open{max-height:380px;opacity:1;padding:0 0 1.8rem;}.acc-text{font-size:.98rem;font-weight:300;color:rgba(23,23,22,.70);line-height:2.25;max-width:760px;letter-spacing:.01em;}.acc-text strong{font-weight:500;color:var(--ink);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);}.col{padding:2.7rem 0;}.col:first-child{padding-right:3rem;border-right:1px solid var(--line);}.col:last-child{padding-left:3rem;}
+.kicker{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:1rem;display:block;font-weight:500;}.mini-h{font-size:1.08rem;font-weight:400;color:var(--ink);margin-bottom:.6rem;line-height:1.5;}.mini-p{font-size:.96rem;font-weight:300;line-height:2.2;color:rgba(23,23,22,.68);letter-spacing:.01em;}
+.world{background:var(--ink);color:var(--cream);}.world .acc-name{color:rgba(245,242,237,.84);}.world .acc-name small{color:rgba(245,242,237,.36);}.world .acc-ic{color:rgba(245,242,237,.45);}.world .acc-text{color:rgba(245,242,237,.72);}.world .acc-text strong{color:var(--cream);}
+.pill-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.5rem;}.pill{border:1px solid rgba(245,242,237,.14);padding:.8rem 1rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,237,.58);}
+.pull{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,7vw,4.8rem);font-weight:400;line-height:1.13;letter-spacing:-.025em;}
+.quiz{background:#E7E9E0;}.quiz-box{border:1px solid rgba(23,23,22,.08);background:rgba(247,245,239,.92);padding:2.25rem;max-width:860px;box-shadow:0 24px 70px rgba(23,23,22,.045);}.q{display:none;}.q.active{display:block;animation:fadeLift 620ms cubic-bezier(.16,1,.3,1) both;}.q-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,6vw,3.3rem);font-weight:400;line-height:1.1;letter-spacing:-.025em;margin-bottom:1.8rem;}.q-sub{font-size:.88rem;color:rgba(23,23,22,.52);line-height:2.05;margin-bottom:1.7rem;letter-spacing:.01em;}.opts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}.opt{padding:1.35rem 1.4rem;border:1px solid rgba(23,23,22,.10);border-radius:18px;background:rgba(245,242,237,.78);text-align:left;cursor:pointer;font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:300;line-height:1.65;color:rgba(23,23,22,.82);box-shadow:0 8px 24px rgba(23,23,22,.025);transition:transform 420ms cubic-bezier(.16,1,.3,1),background 420ms cubic-bezier(.16,1,.3,1),border-color 420ms cubic-bezier(.16,1,.3,1),box-shadow 420ms cubic-bezier(.16,1,.3,1);}.opt:hover{background:#E5E8DE;border-color:rgba(115,128,111,.40);transform:translateY(-2px);box-shadow:0 14px 34px rgba(23,23,22,.055);}.opt:active{transform:translateY(0) scale(.995);}.progress{font-size:.56rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(23,23,22,.38);margin-bottom:1.4rem;}
+.result{display:none;}.result.active{display:block;animation:fadeLift 720ms cubic-bezier(.16,1,.3,1) both;}.res-tag{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:1rem;}.res-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,7vw,4rem);font-weight:400;line-height:1;letter-spacing:-.03em;margin-bottom:1.4rem;}.res-p{font-size:.98rem;font-weight:300;line-height:2.25;color:rgba(23,23,22,.68);max-width:620px;margin-bottom:2rem;letter-spacing:.01em;}.res-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;}.res-actions a,.res-actions button{padding:1.1rem 1.55rem;border:0;background:var(--ink);color:var(--cream);font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;font-family:'Outfit',sans-serif;cursor:pointer;}.res-actions button{background:transparent;color:var(--ink);border:1px solid rgba(23,23,22,.15);}
+.s-cta{padding:10rem 3rem;background:var(--ink);}.cta-h{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,12vw,7rem);font-weight:400;font-style:italic;color:var(--cream);line-height:.9;margin-bottom:1.3rem;letter-spacing:-.04em;}.cta-sub{font-size:.9rem;font-weight:300;color:rgba(245,242,237,.50);margin-bottom:3.5rem;line-height:2.25;max-width:580px;letter-spacing:.01em;}.contact-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;max-width:900px;}.btn-main{padding:1.35rem 2rem;background:var(--cream);color:var(--ink);font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;box-shadow:0 24px 60px rgba(0,0,0,.18);}.btn-info{padding:1.35rem 1.9rem;border:1px solid rgba(245,242,237,.22);color:rgba(245,242,237,.86);font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;background:rgba(245,242,237,.025);}.btn-info:hover{background:rgba(245,242,237,.075);border-color:rgba(245,242,237,.38);transform:translateY(-2px);}.btn-main:hover{transform:translateY(-2px);box-shadow:0 28px 70px rgba(0,0,0,.24);}.btn-ghost{display:block;margin-top:1.8rem;font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,242,237,.48);text-decoration:none;}
+footer{padding:2.5rem 3rem;border-top:1px solid rgba(23,23,22,.08);display:flex;justify-content:space-between;align-items:center;}.fl{font-family:'Cormorant Garamond',serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(23,23,22,.22);}.fr{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(23,23,22,.34);text-align:right;line-height:2;}
+@media(max-width:760px){.s9{padding:7rem 1.5rem}.s7{padding:5.5rem 1.5rem}.s5{padding:4rem 1.5rem}nav{padding:1.3rem 1.5rem}.btn-outline{display:flex;margin:1rem 0 0;width:max-content}.strip{grid-template-columns:1fr}.strip div{padding:1.6rem 1.5rem;border-right:none;border-bottom:1px solid var(--line)}.strip div:last-child{border-bottom:none}.grid2{grid-template-columns:1fr}.col:first-child{padding-right:0;border-right:none;border-bottom:1px solid var(--line)}.col:last-child{padding-left:0}.opts{grid-template-columns:1fr;gap:.85rem}.quiz-box{padding:1.45rem}.s-cta{padding:7rem 1.5rem}footer{padding:2rem 1.5rem}.contact-actions{display:grid;grid-template-columns:1fr;gap:.9rem}.btn-main,.btn-info{width:100%;text-align:center}.res-actions a,.res-actions button{width:100%;text-align:center}.res-card a{width:100%;}}
+
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:2.2rem;}
+.res-card{background:#F5F2ED;border:1px solid rgba(23,23,22,.12);padding:1.45rem;min-height:100%;}
+.res-card.primary{background:#E9ECE4;border-color:rgba(115,128,111,.30);}
+.res-card.info-card{background:#F7F5EF;border-color:rgba(156,128,82,.18);}
+.res-k{display:block;font-size:.52rem;letter-spacing:.25em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:1rem;}
+.res-card h4{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:400;line-height:1.1;letter-spacing:-.02em;margin-bottom:.9rem;color:var(--ink);}
+.res-card p{font-size:.88rem;font-weight:300;line-height:2;color:rgba(23,23,22,.68);margin-bottom:1.2rem;}
+.res-card a{display:inline-block;padding:.95rem 1rem;background:var(--ink);color:var(--cream);font-size:.50rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;}
+.result .res-actions button{background:transparent;color:var(--ink);border:1px solid rgba(23,23,22,.15);}
+@media(max-width:900px){.res-grid{grid-template-columns:1fr}.res-card a{width:100%;text-align:center}}
+
+@media(max-width:760px){.menu-head{padding:1.3rem 1.5rem}.n-home{display:none}.menu-body{padding:3.2rem 1.5rem 2rem;grid-template-columns:1fr;gap:2.6rem}.menu-links a{font-size:1.35rem}.menu-foot{padding:0 1.5rem 2rem;display:block}.menu-foot div+div{margin-top:1rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://linktr.ee/soavitasconcierge" class="n-logo" aria-label="Home Soavitas">Soavitas</a>
+  <div class="nav-actions">
+    <a href="https://linktr.ee/soavitasconcierge" class="n-home">Home</a>
+    <button class="menu-toggle" type="button" onclick="toggleMenu(true)" aria-controls="site-menu" aria-expanded="false">Menu</button>
+  </div>
+</nav>
+
+<div class="menu-panel" id="site-menu" aria-hidden="true">
+  <div class="menu-head">
+    <a href="https://linktr.ee/soavitasconcierge" class="n-logo" onclick="toggleMenu(false)">Soavitas</a>
+    <button class="menu-close" type="button" onclick="toggleMenu(false)" aria-label="Chiudi menu">Chiudi</button>
+  </div>
+  <div class="menu-body">
+    <div class="menu-title">Cura privata,<br><em>orientamento</em><br>e presenza.</div>
+    <div class="menu-links">
+      <a href="https://linktr.ee/soavitasconcierge" onclick="toggleMenu(false)">Home <span>sito</span></a>
+      <a href="#quiz" onclick="toggleMenu(false)">Quiz orientativo <span>4 domande</span></a>
+      <a href="#mondo" onclick="toggleMenu(false)">Dove si usa <span>mondo</span></a>
+      <a href="https://soavitasagenda.as.me/introduttiva" target="_blank" rel="noopener" onclick="toggleMenu(false)">Consulenza introduttiva <span>prenota</span></a>
+      <a href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20informazioni%20Soavitas" onclick="toggleMenu(false)">Chieda informazioni <span>email</span></a>
+      <a href="https://wa.me/393516107418" target="_blank" rel="noopener" onclick="toggleMenu(false)">WhatsApp <span>contatto</span></a>
+      <a href="https://www.instagram.com/soavitas.nursing/" target="_blank" rel="noopener" onclick="toggleMenu(false)">Instagram <span>profilo</span></a>
+      <a href="https://linktr.ee/soavitasconcierge" target="_blank" rel="noopener" onclick="toggleMenu(false)">Tutti i servizi <span>linktree</span></a>
+    </div>
+  </div>
+  <div class="menu-foot">
+    <div>Concierge Nursing · Soavitas</div>
+    <div>Risposta umana, valutazione professionale.</div>
+  </div>
+</div>
+
+<section class="s9 bb">
+  <span class="tag">Concierge Nursing · guida essenziale</span>
+  <h1 class="h1">Che cos'è<br>un <em>Concierge<br>Nurse?</em></h1>
+  <p class="lead">È una presenza infermieristica privata e dedicata. Non sostituisce la valutazione medica e non promette scorciatoie: aiuta a leggere il bisogno, ordinare le informazioni e mantenere continuità tra casa, famiglia, viaggio, cura e recupero.</p>
+  <p class="defn">Private nursing · care coordination · travel support · clinical advocacy</p>
+  <a href="#quiz" class="btn-hero">Capisca da dove partire</a>
+  <a href="#mondo" class="btn-outline">Dove si usa</a>
+  <p class="hero-note">Non sempre serve un Concierge Nurse completo. A volte basta una consulenza, una prestazione programmata o un supporto temporaneo.</p>
+</section>
+
+<div class="strip">
+  <div><b>Clinica</b><span>Osserva, monitora, educa, segnala e rende più chiaro il percorso.</span></div>
+  <div><b>Continuità</b><span>La storia non si ricomincia da capo ogni volta.</span></div>
+  <div><b>Orientamento</b><span>Aiuta a capire quale servizio serve davvero, senza forzare soluzioni.</span></div>
+</div>
+
+<section class="s7 bb">
+  <span class="tag">Definizione pratica</span>
+  <h2 class="h2">Non è un lusso vago.<br>È una funzione<br><em>precisa.</em></h2>
+  <div>
+    <div class="acc"><button class="acc-btn" onclick="tog('d1')"><span class="acc-name">Che cosa fa davvero<small>cura, coordinamento, presenza</small></span><span class="acc-ic" id="d1-i">+</span></button><div class="acc-body" id="d1"><p class="acc-text">Tiene insieme ciò che spesso resta separato: indicazioni mediche, terapie, parametri, medicazioni, appuntamenti, fragilità quotidiane e comunicazione con la famiglia.</p></div></div>
+    <div class="acc"><button class="acc-btn" onclick="tog('d2')"><span class="acc-name">Che cosa non fa<small>non sostituisce diagnosi o indicazioni mediche</small></span><span class="acc-ic" id="d2-i">+</span></button><div class="acc-body" id="d2"><p class="acc-text">Non formula diagnosi, non cambia terapie e non promette risultati clinici. Lavora dentro le competenze infermieristiche: osservazione, prevenzione, educazione, assistenza, monitoraggio e segnalazione.</p></div></div>
+    <div class="acc acc-end"><button class="acc-btn" onclick="tog('d3')"><span class="acc-name">Quando ha senso<small>non per tutti, non sempre</small></span><span class="acc-ic" id="d3-i">+</span></button><div class="acc-body" id="d3"><p class="acc-text">Ha senso quando la persona o la famiglia non hanno bisogno solo di “fare una cosa”, ma di una presenza capace di tenere il filo: post-operatorio, fragilità, viaggi, visite, dubbi terapeutici o situazioni che cambiano spesso.</p></div></div>
+  </div>
+</section>
+
+<section class="s9 bb world" id="mondo">
+  <span class="tag tag-light">Dove si usa nel mondo</span>
+  <h2 class="h2 h2-light h2-bodoni">Il nome cambia.<br>Il bisogno<br><em>resta.</em></h2>
+  <p class="body body-light" style="margin-bottom:3rem;">Nel mondo il modello cambia nome a seconda del contesto: casa privata, hotel, recupero post-operatorio, viaggio, famiglia internazionale o coordinamento del percorso di cura.</p>
+  <div>
+    <div class="acc acc-light"><button class="acc-btn" onclick="tog('w1')"><span class="acc-name">Stati Uniti<small>concierge nursing · private duty · boutique nursing</small></span><span class="acc-ic" id="w1-i">+</span></button><div class="acc-body" id="w1"><p class="acc-text">È usato per assistenza privata a domicilio, recupero post-chirurgico, bisogni complessi, continuità e servizi personalizzati per famiglie che desiderano un riferimento clinico più vicino.</p></div></div>
+    <div class="acc acc-light"><button class="acc-btn" onclick="tog('w2')"><span class="acc-name">Italia, Regno Unito e Canada<small>private nursing · nursing care at home · continuità privata</small></span><span class="acc-ic" id="w2-i">+</span></button><div class="acc-body" id="w2"><p class="acc-text">Il linguaggio cambia da Paese a Paese. Nel Regno Unito e in Canada è più comune parlare di private nursing o assistenza infermieristica a domicilio. In Italia il termine è meno diffuso, ma il bisogno è già presente: continuità, post-operatorio, dimissioni delicate, fragilità, viaggi e un riferimento sanitario più chiaro.</p></div></div>
+    <div class="acc acc-light acc-light-end"><button class="acc-btn" onclick="tog('w3')"><span class="acc-name">Dubai e contesti luxury travel<small>hotel nursing · travel nursing</small></span><span class="acc-ic" id="w3-i">+</span></button><div class="acc-body" id="w3"><p class="acc-text">Il modello incontra l'ospitalità privata: famiglie internazionali, hotel, soggiorni, eventi, trasferte, rientri e continuità sanitaria durante il viaggio.</p></div></div>
+  </div>
+  <div class="pill-row"><span class="pill">Private nurse</span><span class="pill">Post-op recovery</span><span class="pill">Hotel nursing</span><span class="pill">Care coordination</span></div>
+</section>
+
+<section class="s7 bb quiz" id="quiz">
+  <span class="tag">Orientamento rapido</span>
+  <h2 class="h2">Scelga il punto<br><em>da cui partire.</em></h2>
+  <p class="body" style="margin-bottom:2.5rem;">Quattro domande semplici per orientarsi. Il risultato non è una valutazione professionale: serve solo a capire da dove iniziare il dialogo con Soavitas.</p>
+  <div class="quiz-box">
+    <div class="q active" id="q1">
+      <div class="progress">Domanda 1 di 4</div>
+      <h3 class="q-title">Il bisogno è già definito?</h3>
+      <p class="q-sub">Questa prima risposta non assegna un servizio. Serve solo a capire se il quadro è già formulato o se va prima ordinato.</p>
+      <div class="opts">
+        <button class="opt" onclick="answer('clarity','chiara')">Sì. Esiste già una prescrizione, una richiesta o un'indicazione precisa.</button>
+        <button class="opt" onclick="answer('clarity','parziale')">In parte. C'è un bisogno, ma va ordinato e compreso meglio.</button>
+        <button class="opt" onclick="answer('clarity','postop')">È legato a un intervento, una dimissione o un rientro.</button>
+        <button class="opt" onclick="answer('clarity','fragile')">È una situazione fragile, variabile o continuativa.</button>
+      </div>
+    </div>
+
+    <div class="q" id="q2">
+      <div class="progress">Domanda 2 di 4</div>
+      <h3 class="q-title">Dove nasce principalmente il bisogno?</h3>
+      <p class="q-sub">Il luogo conta, ma non decide da solo: un bisogno post-operatorio o cognitivo resta tale anche in hotel o durante un soggiorno.</p>
+      <div class="opts">
+        <button class="opt" onclick="answer('place','domicilio')">A domicilio o in un contesto privato abituale.</button>
+        <button class="opt" onclick="answer('place','viaggio')">Durante viaggio, hotel, soggiorno, evento o rientro fuori casa.</button>
+        <button class="opt" onclick="answer('place','clinico')">Dentro un percorso clinico: visite, referti, indicazioni, terapie, dubbi.</button>
+        <button class="opt" onclick="answer('place','misto')">Non è ancora chiaro: riguarda più aspetti insieme.</button>
+      </div>
+    </div>
+
+    <div class="q" id="q3">
+      <div class="progress">Domanda 3 di 4</div>
+      <h3 class="q-title">C'è fragilità cognitiva o gestionale?</h3>
+      <p class="q-sub">Memoria fragile, confusione, disorientamento o caregiver molto coinvolti cambiano il tipo di supporto necessario.</p>
+      <div class="opts">
+        <button class="opt" onclick="answer('cognitive','autonoma')">No. La persona comprende e gestisce bene le indicazioni.</button>
+        <button class="opt" onclick="answer('cognitive','fragilita')">Sì. Ci sono confusione, disorientamento, memoria fragile o difficoltà a seguire le indicazioni.</button>
+        <button class="opt" onclick="answer('cognitive','caregiver')">La famiglia o chi assiste è molto coinvolta e ha bisogno di orientamento.</button>
+        <button class="opt" onclick="answer('cognitive','quotidiana')">Non è chiaro, ma la gestione quotidiana sta diventando difficile.</button>
+      </div>
+    </div>
+
+    <div class="q" id="q4">
+      <div class="progress">Domanda 4 di 4</div>
+      <h3 class="q-title">Che cosa pesa di più adesso?</h3>
+      <p class="q-sub">L'ultima risposta aiuta a distinguere tra prestazione, orientamento, continuità o disponibilità vicina nel tempo.</p>
+      <div class="opts">
+        <button class="opt" onclick="answer('priority','prestazione')">Eseguire una prestazione in sicurezza.</button>
+        <button class="opt" onclick="answer('priority','comprendere')">Capire indicazioni, esami, referti, visite o terapie.</button>
+        <button class="opt" onclick="answer('priority','continuita')">Avere una presenza stabile che tenga il filo nel tempo.</button>
+        <button class="opt" onclick="answer('priority','rapida')">Verificare rapidamente se Soavitas può essere utile.</button>
+      </div>
+    </div>
+
+    <div class="result" id="result">
+      <div class="res-tag">Orientamento Soavitas</div>
+      <h3 class="res-h">Tre punti da cui partire.</h3>
+      <p class="res-p">Il quiz non assegna un servizio. Orienta il primo passo. Ogni situazione resta da valutare in base a bisogno, sicurezza, contesto, disponibilità e proporzione dell'intervento.</p>
+      <div class="res-grid">
+        <article class="res-card primary">
+          <span class="res-k">Percorso principale</span>
+          <h4 id="resTitle1"></h4>
+          <p id="resText1"></p>
+          <a id="resLink1" href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20informazioni%20Soavitas">Veda questa opzione</a>
+        </article>
+        <article class="res-card">
+          <span class="res-k">Supporto possibile</span>
+          <h4 id="resTitle2"></h4>
+          <p id="resText2"></p>
+          <a id="resLink2" href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20informazioni%20Soavitas">Approfondisca</a>
+        </article>
+        <article class="res-card info-card">
+          <span class="res-k">Sempre consigliato</span>
+          <h4>Chieda informazioni</h4>
+          <p>Può inviare il contesto e ricevere un primo orientamento umano. È il modo più sicuro per non scegliere in autonomia un servizio non proporzionato.</p>
+          <a href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20informazioni%20Soavitas">Chieda informazioni</a>
+        </article>
+      </div>
+      <div class="res-actions" style="margin-top:1.4rem;">
+        <button onclick="restartQuiz()">Rifaccia il quiz</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-cta">
+  <h2 class="cta-h">Non scelga<br>in autonomia<br><em>il servizio.</em></h2>
+  <p class="cta-sub">Ci scriva il bisogno. Verrà letto con attenzione professionale. Se è sufficiente una prestazione, sarà detto con chiarezza. Se serve un percorso più strutturato, Soavitas orienterà la scelta. Se non possiamo essere utili in modo adeguato, non forzeremo la richiesta.</p>
+  <div class="contact-actions">
+    <a href="https://soavitasagenda.as.me/introduttiva" target="_blank" rel="noopener" class="btn-main">Prenoti la consulenza introduttiva</a>
+    <a href="mailto:info@soavitasconciergenursing.com?subject=Richiesta%20informazioni%20Soavitas" class="btn-info">Chieda informazioni</a>
+    <a href="https://wa.me/393516107418" target="_blank" rel="noopener" class="btn-info">WhatsApp</a>
+    <a href="https://www.instagram.com/soavitas.nursing/" target="_blank" rel="noopener" class="btn-info">Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">Soavitas</div>
+  <div class="fr">Concierge Nursing<br>soavitasconciergenursing.com<br><a href="https://wa.me/393516107418" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">WhatsApp</a><br><a href="https://www.instagram.com/soavitas.nursing/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Instagram</a></div>
+</footer>
+
+<script>
+
+function toggleMenu(open){
+  var panel=document.getElementById('site-menu');
+  var btn=document.querySelector('.menu-toggle');
+  if(!panel)return;
+  panel.classList.toggle('open',!!open);
+  panel.setAttribute('aria-hidden',open?'false':'true');
+  document.body.classList.toggle('menu-open',!!open);
+  if(btn)btn.setAttribute('aria-expanded',open?'true':'false');
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')toggleMenu(false);});
+function tog(id){var e=document.getElementById(id),i=document.getElementById(id+'-i'),o=e.classList.contains('open');e.classList.toggle('open',!o);i.textContent=o?'+':'−';i.style.transform=o?'rotate(0deg)':'rotate(180deg)';}
+var quiz={},step=1;
+function showStep(n){
+  document.querySelectorAll('.q').forEach(function(q){q.classList.remove('active')});
+  var el=document.getElementById('q'+n);
+  if(el)el.classList.add('active');
+}
+function answer(k,v){
+  quiz[k]=v;
+  if(step<4){step++;showStep(step);}else{showResult();}
+}
+var services={
+  exclusive:{
+    title:'Valutazione per continuità clinica',
+    text:'Può essere il punto principale quando il bisogno non riguarda un singolo intervento, ma un percorso da tenere insieme nel tempo: fragilità, cambiamenti frequenti, indicazioni, terapie, famiglia coinvolta o bisogno di un riferimento stabile.',
+    link:'https://soavitasagenda.as.me/introduttiva'
+  },
+  advocacy:{
+    title:'Orientamento clinico e Clinical Advocacy',
+    text:'Può essere utile quando serve rimettere ordine tra visite, referti, terapie, documenti, domande da preparare e comunicazione con le figure sanitarie coinvolte.',
+    link:'https://soavitasagenda.as.me/ClinicalAdvocacy'
+  },
+  prestazione:{
+    title:'Prestazione infermieristica programmata',
+    text:'Può essere un punto di partenza quando esiste una richiesta tecnica precisa: medicazione, terapia, controllo, monitoraggio o altra prestazione da verificare prima della conferma.',
+    link:'https://soavitasagenda.as.me/Medicazionesemplice'
+  },
+  postop:{
+    title:'Rientro assistito o recupero post-operatorio',
+    text:'Può essere indicato dopo intervento, dimissione o rientro. Prima si ricostruiscono indicazioni ricevute, contesto, sicurezza e livello di supporto necessario.',
+    link:'https://soavitasagenda.as.me/introduttiva'
+  },
+  viaggio:{
+    title:'Presenza sanitaria in viaggio o soggiorno',
+    text:'Può essere valutata quando il bisogno nasce lontano dai riferimenti abituali: hotel, viaggio, evento, vacanza, rientro o permanenza temporanea.',
+    link:'https://soavitasagenda.as.me/InViaggio'
+  },
+  express:{
+    title:'Verifica di disponibilità rapida',
+    text:'Quando il bisogno è vicino nel tempo, il primo passaggio non è promettere un intervento: è verificare se Soavitas può essere utile in modo sicuro, professionale e realistico.',
+    link:'mailto:info@soavitasconciergenursing.com?subject=Richiesta%20informazioni%20Soavitas'
+  },
+  consulenza:{
+    title:'Consulenza introduttiva Soavitas',
+    text:'Può essere il primo passo quando il bisogno è misto, non ancora definito o richiede una valutazione prima di scegliere tra prestazione, accompagnamento, continuità o altro percorso.',
+    link:'https://soavitasagenda.as.me/introduttiva'
+  }
+};
+function add(scores,key,n){scores[key]=(scores[key]||0)+n;}
+function scoreQuiz(){
+  var s={exclusive:0,advocacy:0,prestazione:0,postop:0,viaggio:0,express:0,consulenza:0};
+  if(quiz.clarity==='chiara'){add(s,'prestazione',2);add(s,'consulenza',1);add(s,'advocacy',1);add(s,'express',1);add(s,'exclusive',1);add(s,'viaggio',1);}
+  if(quiz.clarity==='parziale'){add(s,'consulenza',3);add(s,'advocacy',2);add(s,'exclusive',1);}
+  if(quiz.clarity==='postop'){add(s,'postop',5);add(s,'prestazione',1);add(s,'exclusive',1);}
+  if(quiz.clarity==='fragile'){add(s,'exclusive',4);add(s,'advocacy',2);add(s,'consulenza',2);}
+
+  if(quiz.place==='domicilio'){add(s,'prestazione',1);add(s,'exclusive',1);}
+  if(quiz.place==='viaggio'){add(s,'viaggio',3);add(s,'exclusive',1);add(s,'express',1);}
+  if(quiz.place==='clinico'){add(s,'advocacy',3);add(s,'consulenza',1);}
+  if(quiz.place==='misto'){add(s,'consulenza',3);add(s,'exclusive',2);add(s,'advocacy',1);}
+
+  if(quiz.cognitive==='autonoma'){add(s,'prestazione',1);}
+  if(quiz.cognitive==='fragilita'){add(s,'exclusive',5);add(s,'advocacy',3);add(s,'consulenza',2);}
+  if(quiz.cognitive==='caregiver'){add(s,'advocacy',3);add(s,'exclusive',3);add(s,'consulenza',2);}
+  if(quiz.cognitive==='quotidiana'){add(s,'exclusive',4);add(s,'advocacy',2);add(s,'consulenza',2);}
+
+  if(quiz.priority==='prestazione'){add(s,'prestazione',3);}
+  if(quiz.priority==='comprendere'){add(s,'advocacy',3);add(s,'consulenza',1);}
+  if(quiz.priority==='continuita'){add(s,'exclusive',5);add(s,'advocacy',1);}
+  if(quiz.priority==='rapida'){add(s,'express',5);}
+
+  // Regole di buon senso: il luogo non deve superare un bisogno clinico dominante.
+  if(quiz.clarity==='postop')add(s,'postop',3);
+  if(quiz.cognitive==='fragilita'||quiz.cognitive==='quotidiana')add(s,'exclusive',3);
+  return s;
+}
+function topServices(scores){
+  var order=['express','exclusive','postop','advocacy','prestazione','viaggio','consulenza'];
+  var ranked=order.slice().sort(function(a,b){return (scores[b]-scores[a]) || (order.indexOf(a)-order.indexOf(b));});
+  var first=ranked[0];
+  var second=ranked.filter(function(k){return k!==first;})[0];
+  return [services[first],services[second]];
+}
+function showResult(){
+  // Link safeguard: result buttons are simple anchors; information links use a simple mailto without target blank. No window.open; WhatsApp is a single direct link.
+  document.querySelectorAll('.q').forEach(function(q){q.classList.remove('active')});
+  var r=topServices(scoreQuiz());
+  document.getElementById('resTitle1').textContent=r[0].title;
+  document.getElementById('resText1').textContent=r[0].text;
+  document.getElementById('resLink1').href=r[0].link;
+  document.getElementById('resTitle2').textContent=r[1].title;
+  document.getElementById('resText2').textContent=r[1].text;
+  document.getElementById('resLink2').href=r[1].link;
+  document.getElementById('result').classList.add('active');
+}
+function restartQuiz(){
+  quiz={};step=1;
+  document.getElementById('result').classList.remove('active');
+  showStep(1);
+}
+</script>
+</body>
+</html>
