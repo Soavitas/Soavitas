@@ -1,28 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Soavitas Concierge Nursing: piattaforma informativa e di orientamento verso servizi infermieristici privati erogati da professionisti indipendenti.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soavitas | Concierge Nursing</title>
+  <meta name="description" content="Soavitas Concierge Nursing: orientamento e accesso a servizi infermieristici privati erogati da professionisti sanitari indipendenti.">
 
   <style>
-    :root {
-      --bg: #fbfbfa;
-      --soft-bg: #f4f3f0;
-      --ink: #1a1a1a;
-      --muted: #5e5d5a;
-      --light-muted: #8c8b88;
-      --border: #ecebe8;
-      --sage: #2d3a34;
-      --sage-dark: #1e2824;
-      --white: #ffffff;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    :root {
+      --ivory: #F8F4EC;
+      --cream: #FFFDF8;
+      --paper: #FFFFFF;
+      --warm: #EFE8DA;
+      --ink: #111713;
+      --charcoal: #1D2420;
+      --sage: #2F4037;
+      --sage-soft: #E4EADF;
+      --sage-mist: #F1F4EE;
+      --gold: #B99A5E;
+      --gold-soft: #D8C49A;
+      --muted: #6B6861;
+      --light: #928D82;
+      --line: rgba(47, 64, 55, 0.14);
+      --shadow: 0 28px 80px rgba(29, 36, 32, 0.08);
+      --radius: 30px;
     }
 
     html {
@@ -31,19 +38,22 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
       color: var(--ink);
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(185, 154, 94, 0.15), transparent 32%),
+        linear-gradient(180deg, var(--cream) 0%, var(--ivory) 48%, var(--cream) 100%);
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
     .container {
-      width: min(1100px, calc(100% - 48px));
+      width: min(1120px, calc(100% - 44px));
       margin: 0 auto;
     }
 
@@ -52,87 +62,141 @@
     h3 {
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 400;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.035em;
     }
 
-    header {
-      padding: 30px 0;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 253, 248, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(47, 64, 55, 0.10);
     }
 
     .nav {
+      min-height: 86px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
     }
 
     .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.28rem;
-      letter-spacing: 0.15em;
+      font-size: 1.18rem;
+      letter-spacing: 0.20em;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
-    .location-tag {
-      color: #6e6d6a;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(185, 154, 94, 0.72);
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      text-align: right;
+    }
+
+    .nav-links a {
+      transition: color 0.22s ease, border-color 0.22s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-pill {
+      padding: 10px 16px;
+      border: 1px solid rgba(47, 64, 55, 0.35);
+      border-radius: 999px;
+      color: var(--sage);
+      background: rgba(255, 255, 255, 0.44);
     }
 
     .hero {
-      padding: 104px 0 84px;
+      position: relative;
+      padding: 114px 0 94px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 30px;
+      border: 1px solid rgba(185, 154, 94, 0.22);
+      border-radius: 38px;
+      pointer-events: none;
+    }
+
+    .hero-layout {
+      position: relative;
+      max-width: 940px;
+      margin: 0 auto;
       text-align: center;
-      background:
-        radial-gradient(circle at top left, rgba(184, 154, 94, 0.12), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(45, 58, 52, 0.12), transparent 38%),
-        var(--bg);
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding: 10px 18px;
+      border: 1px solid rgba(47, 64, 55, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.54);
+      color: var(--sage);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      box-shadow: 0 14px 40px rgba(29, 36, 32, 0.04);
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: rgba(185, 154, 94, 0.7);
     }
 
     .hero h1 {
-      max-width: 900px;
-      margin: 0 auto 26px;
-      font-size: clamp(3rem, 7vw, 5.6rem);
-      line-height: 1.04;
-      color: #111111;
+      max-width: 920px;
+      margin: 0 auto 28px;
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      line-height: 0.94;
+      color: var(--ink);
     }
 
     .hero p {
       max-width: 720px;
-      margin: 0 auto 40px;
-      color: #4a4a48;
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      margin: 0 auto 44px;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.28rem);
       font-weight: 300;
     }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 56px;
-      padding: 0 34px;
-      background: var(--sage);
-      color: var(--white);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.86rem;
-      transition: background 0.25s ease, transform 0.25s ease;
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
-      background: var(--sage-dark);
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    .hero-actions,
-    .cta-row {
+    .hero-actions {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -140,311 +204,532 @@
       flex-wrap: wrap;
     }
 
-    .btn-secondary {
+    .btn {
+      min-height: 56px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 56px;
-      padding: 0 34px;
-      border: 1px solid var(--sage);
-      color: var(--sage);
-      background: transparent;
-      text-decoration: none;
+      padding: 0 30px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.86rem;
-      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      background: var(--sage);
-      color: var(--white);
+    .btn:hover {
       transform: translateY(-2px);
-      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--sage);
+      border: 1px solid var(--sage);
+      color: #FFFFFF;
+      box-shadow: 0 18px 42px rgba(47, 64, 55, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--charcoal);
+      border-color: var(--charcoal);
+      box-shadow: 0 24px 54px rgba(29, 36, 32, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.44);
+      border: 1px solid rgba(47, 64, 55, 0.24);
+      color: var(--sage);
+    }
+
+    .btn-secondary:hover {
+      background: #FFFFFF;
+      border-color: rgba(185, 154, 94, 0.65);
+      color: var(--ink);
     }
 
     .coverage {
-      padding: 32px 0;
+      padding: 30px 0;
       background: var(--sage);
-      color: var(--white);
+      color: #FFFFFF;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     }
 
-    .coverage p {
+    .coverage-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
       text-align: center;
-      font-size: clamp(0.95rem, 2vw, 1.08rem);
-      letter-spacing: 0.02em;
+      font-size: clamp(0.95rem, 2vw, 1.07rem);
     }
 
-    .coverage strong {
+    .coverage-inner span {
       font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.78);
+      font-style: italic;
+      color: rgba(255,255,255,0.76);
+      white-space: nowrap;
     }
 
-    .services {
-      padding: 86px 0;
-      border-top: 1px solid var(--border);
+    .section {
+      padding: 96px 0;
     }
 
     .section-intro {
       max-width: 760px;
-      margin: 0 auto 48px;
+      margin: 0 auto 54px;
       text-align: center;
     }
 
-    .section-intro h2 {
+    .section-intro .label {
+      display: block;
       margin-bottom: 18px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.12;
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section-intro h2 {
+      margin-bottom: 20px;
+      font-size: clamp(2.25rem, 4vw, 3.6rem);
+      line-height: 1.03;
     }
 
     .section-intro p {
       color: var(--muted);
-      font-size: 1.02rem;
+      font-size: 1.04rem;
+    }
+
+    .services {
+      background: linear-gradient(180deg, rgba(255,255,255,0.42), rgba(248,244,236,0.42));
+      border-top: 1px solid var(--line);
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 42px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
     .service-card {
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
+      position: relative;
+      min-height: 330px;
+      padding: 34px;
+      border: 1px solid rgba(47, 64, 55, 0.12);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 253, 248, 0.58));
+      box-shadow: 0 22px 60px rgba(29, 36, 32, 0.055);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -50px;
+      bottom: -50px;
+      border-radius: 50%;
+      background: rgba(185, 154, 94, 0.10);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(185, 154, 94, 0.35);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card small {
+      display: inline-flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(185, 154, 94, 0.45);
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
     }
 
     .service-card h3 {
-      margin-bottom: 16px;
-      font-size: 1.42rem;
-      line-height: 1.18;
+      margin-bottom: 18px;
+      font-size: 1.55rem;
+      line-height: 1.12;
     }
 
     .service-card p {
+      margin-bottom: 28px;
       color: var(--muted);
-      font-size: 0.97rem;
-      margin-bottom: 18px;
+      font-size: 0.98rem;
     }
 
     .service-link {
+      position: relative;
+      z-index: 1;
       display: inline-block;
       color: var(--sage);
       font-size: 0.76rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(45, 58, 52, 0.35);
-      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(47, 64, 55, 0.32);
+      padding-bottom: 5px;
     }
 
-    .service-link:hover,
-    .service-link:focus-visible {
-      border-color: var(--sage);
-      outline: none;
+    .service-link:hover {
+      border-color: var(--gold);
+      color: var(--ink);
     }
 
-    .quick-links {
-      padding: 82px 0;
-      background: #ffffff;
-      border-top: 1px solid var(--border);
+    .links-section {
+      background: var(--cream);
+      border-top: 1px solid var(--line);
     }
 
     .link-grid {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
 
     .link-box {
-      min-height: 86px;
+      min-height: 96px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      text-align: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 26px;
+      border: 1px solid rgba(47, 64, 55, 0.12);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.62);
       color: var(--ink);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.82rem;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      box-shadow: 0 12px 42px rgba(29, 36, 32, 0.035);
+      transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease;
     }
 
-    .link-box:hover,
-    .link-box:focus-visible {
-      transform: translateY(-2px);
-      border-color: rgba(45, 58, 52, 0.35);
-      background: #ffffff;
-      outline: none;
+    .link-box:hover {
+      transform: translateY(-3px);
+      border-color: rgba(185, 154, 94, 0.42);
+      background: #FFFFFF;
+    }
+
+    .link-title {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .link-arrow {
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
     }
 
     .transparency {
-      padding: 88px 0;
-      background: var(--soft-bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(47,64,55,0.08), transparent 44%),
+        var(--sage-mist);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .transparency-content {
-      max-width: 850px;
+    .transparency-card {
+      max-width: 940px;
       margin: 0 auto;
+      padding: clamp(34px, 6vw, 64px);
+      border: 1px solid rgba(47, 64, 55, 0.12);
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: var(--shadow);
     }
 
-    .transparency h2 {
-      margin-bottom: 14px;
+    .transparency-head {
+      max-width: 720px;
+      margin: 0 auto 34px;
       text-align: center;
-      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .transparency-head .label {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .transparency-head h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2.25rem, 4vw, 3.5rem);
+      line-height: 1.03;
     }
 
     .transparency-kicker {
-      margin-bottom: 30px;
-      text-align: center;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.32rem;
+      font-size: 1.3rem;
       color: var(--sage);
     }
 
-    .transparency p {
-      margin-bottom: 20px;
-      color: #4a4a48;
-      font-size: 1rem;
-      text-align: justify;
-      text-justify: inter-word;
+    .legal-blocks {
+      display: grid;
+      gap: 16px;
+    }
+
+    .legal-block {
+      padding: 22px 0;
+      border-top: 1px solid rgba(47, 64, 55, 0.12);
+    }
+
+    .legal-block:first-child {
+      border-top: none;
+    }
+
+    .legal-block p {
+      color: #4A4A48;
+      font-size: 0.98rem;
+      text-align: left;
     }
 
     .legal-note {
-      margin-top: 34px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(26, 26, 26, 0.12);
+      margin-top: 26px;
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid rgba(185, 154, 94, 0.25);
+      background: rgba(248, 244, 236, 0.62);
     }
 
     .legal-note p {
-      margin-bottom: 0;
-      color: #666461;
-      font-size: 0.92rem;
+      color: #635F56;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .final-cta {
+      position: relative;
+      padding: 96px 0;
+      background: var(--cream);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: "Soavitas";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(5rem, 18vw, 15rem);
+      color: rgba(47, 64, 55, 0.035);
+      letter-spacing: -0.06em;
+      pointer-events: none;
+    }
+
+    .final-cta .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      max-width: 780px;
+      margin: 0 auto 24px;
+      font-size: clamp(2.25rem, 4vw, 3.6rem);
+      line-height: 1.05;
+    }
+
+    .final-cta p {
+      max-width: 700px;
+      margin: 0 auto 36px;
+      color: var(--muted);
+      font-size: 1.04rem;
     }
 
     footer {
-      padding: 54px 0;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      color: var(--light-muted);
+      padding: 58px 0;
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.68);
       font-size: 0.82rem;
     }
 
     .footer-grid {
       display: flex;
       flex-direction: column;
+      gap: 24px;
       align-items: center;
-      gap: 20px;
       text-align: center;
     }
 
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #FFFFFF;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     .footer-legal {
-      max-width: 850px;
+      max-width: 900px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
     }
 
     .footer-links a {
-      margin: 0 10px;
-      color: var(--light-muted);
-      text-decoration: none;
+      color: rgba(255,255,255,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.22);
+      padding-bottom: 3px;
+      transition: color 0.22s ease, border-color 0.22s ease;
     }
 
-    .footer-links a:hover,
-    .footer-links a:focus-visible {
-      color: var(--ink);
-      outline: none;
+    .footer-links a:hover {
+      color: #FFFFFF;
+      border-color: var(--gold-soft);
     }
 
-    @media (max-width: 768px) {
-      .container {
-        width: min(100% - 32px, 1100px);
-      }
-
-      header {
-        padding: 24px 0;
+    @media (max-width: 900px) {
+      .topbar {
+        position: relative;
       }
 
       .nav {
         flex-direction: column;
-        gap: 10px;
+        min-height: auto;
+        padding: 26px 0;
         text-align: center;
       }
 
-      .location-tag {
-        text-align: center;
-        font-size: 0.72rem;
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
       }
 
       .hero {
-        padding: 72px 0 64px;
+        padding: 76px 0 66px;
+      }
+
+      .hero::before {
+        inset: 16px;
+        border-radius: 28px;
       }
 
       .hero h1 {
-        font-size: 2.65rem;
+        font-size: 2.78rem;
       }
 
-      .btn-primary,
-      .btn-secondary {
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
         width: 100%;
-        max-width: 360px;
+        max-width: 390px;
       }
 
-      .services {
-        padding: 72px 0;
+      .coverage-inner {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .section,
+      .final-cta {
+        padding: 76px 0;
       }
 
       .services-grid,
       .link-grid {
         grid-template-columns: 1fr;
-        gap: 34px;
       }
 
-      .transparency {
-        padding: 72px 0;
+      .service-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        width: min(100% - 30px, 1120px);
       }
 
-      .transparency p {
-        text-align: left;
+      .logo {
+        font-size: 1.02rem;
+      }
+
+      .logo-mark {
+        width: 30px;
+        height: 30px;
+      }
+
+      .nav-links {
+        font-size: 0.68rem;
+      }
+
+      .hero h1 {
+        font-size: 2.42rem;
+      }
+
+      .eyebrow {
+        font-size: 0.66rem;
+        letter-spacing: 0.11em;
+      }
+
+      .eyebrow::before,
+      .eyebrow::after {
+        width: 12px;
+      }
+
+      .link-box {
+        min-height: 88px;
+        padding: 22px;
       }
     }
   </style>
 </head>
 
-<body>
-  <header>
+<body id="top">
+  <header class="topbar">
     <div class="container nav">
-      <a class="logo" href="#top">Soavitas</a>
-      <div class="location-tag">Milano • Brescia • Mantova • Verona • Lago di Garda</div>
+      <a class="logo" href="#top" aria-label="Soavitas - torna all'inizio">
+        <span class="logo-mark">S</span>
+        <span>Soavitas</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigazione principale">
+        <a href="https://soavitasagenda.as.me/introduttiva">Consulenza</a>
+        <a href="https://soavitas.github.io/services/soavitas-inviaggio.html">In viaggio</a>
+        <a href="#trasparenza">Trasparenza</a>
+        <a class="nav-pill" href="https://www.soavitasconciergenursing.com/richiesta-informazioni">Richiesta informazioni</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container">
+      <div class="container hero-layout">
+        <div class="eyebrow">Private Nursing · Care Management · Travel Support</div>
+
         <h1>Soavitas | Concierge Nursing</h1>
+
         <p>
           Assistenza infermieristica privata, consulenza e orientamento assistenziale
           per persone, famiglie e ospiti in contesti domiciliari, alberghieri e privati.
         </p>
+
         <div class="hero-actions">
-          <a
-            class="btn-primary"
-            href="https://www.soavitasconciergenursing.com/richiesta-informazioni"
-          >
+          <a class="btn btn-primary" href="https://www.soavitasconciergenursing.com/richiesta-informazioni">
             Richieda informazioni
           </a>
-          <a
-            class="btn-secondary"
-            href="https://wa.me/393000000000"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="btn btn-secondary" href="https://wa.me/393000000000">
             WhatsApp
           </a>
         </div>
@@ -453,17 +738,18 @@
 
     <section class="coverage" aria-label="Copertura geografica">
       <div class="container">
-        <p>
-          <strong>Servizio attivo nelle province di:</strong>
-          Milano, Brescia, Mantova, Verona e area Lago di Garda.
-        </p>
+        <div class="coverage-inner">
+          <span>Area di intervento</span>
+          <p>Milano, Brescia, Mantova, Verona e area Lago di Garda.</p>
+        </div>
       </div>
     </section>
 
-    <section class="services" aria-labelledby="servizi-title">
+    <section class="section services">
       <div class="container">
         <div class="section-intro">
-          <h2 id="servizi-title">Supporto sanitario privato, discreto, coordinato.</h2>
+          <span class="label">Servizi</span>
+          <h2>Supporto sanitario privato, discreto, coordinato.</h2>
           <p>
             Soavitas facilita il contatto con infermieri liberi professionisti
             per bisogni assistenziali valutabili caso per caso.
@@ -472,102 +758,154 @@
 
         <div class="services-grid">
           <article class="service-card">
+            <small>01</small>
             <h3>Assistenza Post-Operatoria</h3>
             <p>
               Supporto infermieristico dopo interventi chirurgici, secondo prescrizione medica
               e nel rispetto delle competenze professionali infermieristiche.
             </p>
-            <a class="service-link" href="https://www.soavitasconciergenursing.com/richiesta-informazioni">Scriva il contesto</a>
+            <a class="service-link" href="https://www.soavitasconciergenursing.com/richiesta-informazioni">
+              Scriva il contesto
+            </a>
           </article>
 
           <article class="service-card">
+            <small>02</small>
             <h3>Care Management &amp; Advocacy</h3>
             <p>
               Orientamento, coordinamento assistenziale e supporto alla comprensione dei percorsi di cura,
               senza sostituire il medico curante o gli specialisti di riferimento.
             </p>
-            <a class="service-link" href="https://soavitasagenda.as.me/introduttiva">Prenoti la consulenza</a>
+            <a class="service-link" href="https://soavitasagenda.as.me/introduttiva">
+              Prenoti la consulenza
+            </a>
           </article>
 
           <article class="service-card">
+            <small>03</small>
             <h3>Supporto Infermieristico in Viaggio</h3>
             <p>
               Continuità assistenziale e supporto infermieristico in hotel, resort, ville private
               o durante soggiorni temporanei, previa valutazione del bisogno.
             </p>
-            <a class="service-link" href="https://soavitas.github.io/services/soavitas-inviaggio.html">Veda In viaggio</a>
+            <a class="service-link" href="https://soavitas.github.io/services/soavitas-inviaggio.html">
+              Veda In viaggio
+            </a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="quick-links" aria-label="Link rapidi Soavitas">
+    <section class="section links-section" aria-label="Link rapidi Soavitas">
       <div class="container">
         <div class="section-intro">
-          <h2>Accesso rapido</h2>
+          <span class="label">Accesso rapido</span>
+          <h2>Un ingresso riservato ai canali Soavitas.</h2>
           <p>
-            I canali principali Soavitas raccolti in un’unica pagina, per scegliere il percorso più adatto.
+            Una pagina essenziale per scegliere il percorso più adatto:
+            richiesta informazioni, consulenza, viaggio o contatto diretto.
           </p>
         </div>
 
         <div class="link-grid">
-          <a class="link-box" href="https://www.soavitasconciergenursing.com/richiesta-informazioni">Richiesta informazioni</a>
-          <a class="link-box" href="https://soavitasagenda.as.me/introduttiva">Consulenza introduttiva</a>
-          <a class="link-box" href="https://soavitas.github.io/services/soavitas-inviaggio.html">Assistenza in viaggio</a>
-          <a class="link-box" href="https://www.instagram.com/soavitasconcierge">Instagram</a>
-          <a class="link-box" href="https://linktr.ee/soavitasconcierge">Linktree</a>
+          <a class="link-box" href="https://www.soavitasconciergenursing.com/richiesta-informazioni">
+            <span class="link-title">Richiesta informazioni</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a class="link-box" href="https://soavitasagenda.as.me/introduttiva">
+            <span class="link-title">Consulenza introduttiva</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a class="link-box" href="https://soavitas.github.io/services/soavitas-inviaggio.html">
+            <span class="link-title">Assistenza in viaggio</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a class="link-box" href="https://wa.me/393000000000">
+            <span class="link-title">WhatsApp</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a class="link-box" href="https://www.instagram.com/soavitasconcierge">
+            <span class="link-title">Instagram</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a class="link-box" href="https://linktr.ee/soavitasconcierge">
+            <span class="link-title">Linktree</span>
+            <span class="link-arrow">→</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="transparency" id="trasparenza" aria-labelledby="trasparenza-title">
+    <section class="section transparency" id="trasparenza">
       <div class="container">
-        <div class="transparency-content">
-          <h2 id="trasparenza-title">Trasparenza</h2>
-          <div class="transparency-kicker">Il Network Sanitario Soavitas</div>
+        <div class="transparency-card">
+          <div class="transparency-head">
+            <span class="label">Chiarezza operativa</span>
+            <h2>Trasparenza</h2>
+            <div class="transparency-kicker">Il Network Sanitario Soavitas</div>
+          </div>
 
-          <p>
-            Soavitas Concierge Nursing non è una clinica, una struttura sanitaria, un ambulatorio,
-            una società sanitaria o un servizio di emergenza. Soavitas opera come piattaforma
-            informativa, editoriale e di orientamento, finalizzata a presentare servizi infermieristici
-            privati erogati da Infermieri Liberi Professionisti indipendenti.
-          </p>
+          <div class="legal-blocks">
+            <div class="legal-block">
+              <p>
+                Soavitas Concierge Nursing non è una clinica, una struttura sanitaria, un ambulatorio,
+                una società sanitaria o un servizio di emergenza. Soavitas opera come piattaforma
+                informativa, editoriale e di orientamento, finalizzata a presentare servizi infermieristici
+                privati erogati da Infermieri Liberi Professionisti indipendenti.
+              </p>
+            </div>
 
-          <p>
-            La presenza della Partita IVA del soggetto gestore identifica il titolare della piattaforma
-            informativa, dei contenuti pubblicati e dei canali di primo contatto. Non implica che le
-            prestazioni sanitarie svolte da altri professionisti siano erogate, incassate o fatturate
-            dalla piattaforma.
-          </p>
+            <div class="legal-block">
+              <p>
+                La presenza della Partita IVA del soggetto gestore identifica il titolare della piattaforma
+                informativa, dei contenuti pubblicati e dei canali di primo contatto. Non implica che le
+                prestazioni sanitarie svolte da altri professionisti siano erogate, incassate o fatturate
+                dalla piattaforma.
+              </p>
+            </div>
 
-          <p>
-            Crediamo nella massima trasparenza e nella tutela della salute: ogni prestazione sanitaria
-            infermieristica viene valutata, accettata, erogata, documentata e fatturata direttamente
-            dal singolo professionista incaricato, secondo la propria autonomia, responsabilità
-            professionale, copertura assicurativa e posizione fiscale.
-          </p>
+            <div class="legal-block">
+              <p>
+                Crediamo nella massima trasparenza e nella tutela della salute: ogni prestazione sanitaria
+                infermieristica viene valutata, accettata, erogata, documentata e fatturata direttamente
+                dal singolo professionista incaricato, secondo la propria autonomia, responsabilità
+                professionale, copertura assicurativa e posizione fiscale.
+              </p>
+            </div>
 
-          <p>
-            Il rapporto professionale relativo alla prestazione sanitaria intercorre direttamente tra
-            il cliente/paziente e l’infermiere libero professionista che prende in carico il caso.
-            L’eventuale attività di primo orientamento o case management è svolta dal professionista
-            incaricato, nei limiti delle competenze infermieristiche e senza sostituire valutazioni,
-            diagnosi, prescrizioni o decisioni riservate al medico.
-          </p>
+            <div class="legal-block">
+              <p>
+                Il rapporto professionale relativo alla prestazione sanitaria intercorre direttamente tra
+                il cliente/paziente e l’infermiere libero professionista che prende in carico il caso.
+                L’eventuale attività di primo orientamento o case management è svolta dal professionista
+                incaricato, nei limiti delle competenze infermieristiche e senza sostituire valutazioni,
+                diagnosi, prescrizioni o decisioni riservate al medico.
+              </p>
+            </div>
 
-          <p>
-            Tutti gli infermieri della rete dichiarano di possedere una regolare Laurea in Infermieristica,
-            iscrizione attiva al rispettivo Ordine delle Professioni Infermieristiche (OPI) e copertura
-            assicurativa per responsabilità civile professionale, ove prevista dalla normativa vigente
-            e dalle regole applicabili alla libera professione sanitaria.
-          </p>
+            <div class="legal-block">
+              <p>
+                Tutti gli infermieri della rete dichiarano di possedere una regolare Laurea in Infermieristica,
+                iscrizione attiva al rispettivo Ordine delle Professioni Infermieristiche (OPI) e copertura
+                assicurativa per responsabilità civile professionale, ove prevista dalla normativa vigente
+                e dalle regole applicabili alla libera professione sanitaria.
+              </p>
+            </div>
 
-          <p>
-            Le informazioni presenti in questo sito hanno finalità esclusivamente informative e non
-            costituiscono diagnosi, prescrizione, promessa di risultato, indicazione terapeutica
-            personalizzata o sostituzione del rapporto con il medico curante, lo specialista, il pediatra
-            o i servizi sanitari territoriali.
-          </p>
+            <div class="legal-block">
+              <p>
+                Le informazioni presenti in questo sito hanno finalità esclusivamente informative e non
+                costituiscono diagnosi, prescrizione, promessa di risultato, indicazione terapeutica
+                personalizzata o sostituzione del rapporto con il medico curante, lo specialista, il pediatra
+                o i servizi sanitari territoriali.
+              </p>
+            </div>
+          </div>
 
           <div class="legal-note">
             <p>
@@ -582,17 +920,21 @@
       </div>
     </section>
 
-    <section class="services" aria-label="Contatto finale">
+    <section class="final-cta">
       <div class="container">
-        <div class="section-intro">
-          <h2>Dove si trova Lei, può arrivare una presenza più chiara.</h2>
-          <p>
-            Ci indichi zona, periodo, bisogno assistenziale e contesto. Le risponderemo con una prima valutazione realistica, riservata e professionale.
-          </p>
-        </div>
-        <div class="cta-row">
-          <a class="btn-primary" href="https://www.soavitasconciergenursing.com/richiesta-informazioni">Richieda informazioni</a>
-          <a class="btn-secondary" href="https://wa.me/393000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <h2>Dove si trova Lei, può arrivare una presenza più chiara.</h2>
+        <p>
+          Ci indichi zona, periodo, bisogno assistenziale e contesto.
+          Le risponderemo con una prima valutazione realistica, riservata e professionale.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://www.soavitasconciergenursing.com/richiesta-informazioni">
+            Richieda informazioni
+          </a>
+          <a class="btn btn-secondary" href="https://wa.me/393000000000">
+            WhatsApp
+          </a>
         </div>
       </div>
     </section>
@@ -600,6 +942,8 @@
 
   <footer>
     <div class="container footer-grid">
+      <div class="footer-brand">Soavitas Concierge Nursing</div>
+
       <div class="footer-legal">
         Soavitas Concierge Nursing — P.IVA 01821410196 —
         Piattaforma informativa e di orientamento dedicata a servizi infermieristici privati
@@ -611,10 +955,8 @@
 
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
-        |
         <a href="#">Cookie Policy</a>
-        |
-        |
+        <a href="#trasparenza">Trasparenza</a>
         <a href="https://www.instagram.com/soavitasconcierge">Instagram</a>
       </div>
     </div>
